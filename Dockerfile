@@ -1,11 +1,11 @@
-FROM openjdk:8-jre-alpine as builder
+FROM maven:3.5-jdk-8-alpine AS builder
 
 # Copy the source code to the container
 WORKDIR /app
 COPY . .
 
 # Build the jar
-RUN ["sh", "gradlew", "jar"]
+RUN ["sh", "gradlew", "shadowJar"]
 
 FROM openjdk:8-jre-alpine
 
@@ -18,7 +18,7 @@ RUN chown -R $APPLICATION_USER /app
 USER $APPLICATION_USER
 
 # Copy the jar to the production image from the builder stage.
-COPY --from=builder ./build/libs/deckboxPreview-*.jar /app/deckboxPreview.jar
+COPY --from=builder /app/build/libs/deckboxPreview-*.jar /app/deckboxPreview.jar
 WORKDIR /app
 
 # Service must listen to $PORT environment variable.

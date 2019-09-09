@@ -6,7 +6,7 @@ import io.ktor.locations.KtorExperimentalLocationsAPI
 import io.ktor.locations.Location
 
 @KtorExperimentalLocationsAPI
-@Location("/cards")
+@Location("/api/v1/cards")
 data class Cards(
     val name: String? = null,
     val id: String? = null,
