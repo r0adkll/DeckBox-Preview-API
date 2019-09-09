@@ -5,9 +5,11 @@ buildscript {
     
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'com.github.jengelman.gradle.plugins:shadow:2.0.4'
     }
 }
 
+apply plugin: 'com.github.johnrengelman.shadow'
 apply plugin: 'kotlin'
 apply plugin: 'application'
 
@@ -15,6 +17,13 @@ group 'com.deckboxtcg'
 version '0.0.1'
 
 mainClassName = "io.ktor.server.netty.EngineMain"
+archivesBaseName = "deckboxPreview"
+
+shadowJar {
+    manifest {
+        attributes 'Main-Class': mainClassName
+    }
+}
 
 sourceSets {
     main.kotlin.srcDirs = main.java.srcDirs = ['src']
