@@ -8,8 +8,11 @@ import io.ktor.http.HttpStatusCode
 import io.ktor.locations.get
 import io.ktor.response.respond
 import io.ktor.routing.Routing
+import org.koin.ktor.ext.inject
 
-fun Routing.cards(dataSource: DataSource) {
+fun Routing.cards() {
+
+    val dataSource by inject<DataSource>()
 
     get<Cards> { filter ->
         val cards = dataSource.cards.filter(filter.filter)

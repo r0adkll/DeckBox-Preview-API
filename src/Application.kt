@@ -1,8 +1,7 @@
 package com.deckboxtcg
 
-import com.deckboxtcg.controllers.sets.sets
-import com.deckboxtcg.data.DataSource
 import com.deckboxtcg.controllers.cards.cards
+import com.deckboxtcg.controllers.sets.sets
 import com.deckboxtcg.internal.di.appModule
 import io.ktor.application.Application
 import io.ktor.application.install
@@ -14,7 +13,6 @@ import io.ktor.locations.Locations
 import io.ktor.request.path
 import io.ktor.routing.routing
 import org.koin.ktor.ext.Koin
-import org.koin.ktor.ext.inject
 import org.slf4j.event.Level
 
 fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
@@ -40,12 +38,10 @@ fun Application.module(testing: Boolean = false) {
         modules(appModule)
     }
 
-    val dataSource by inject<DataSource>()
-
     routing {
 
-        cards(dataSource)
-        sets(dataSource)
+        cards()
+        sets()
     }
 }
 

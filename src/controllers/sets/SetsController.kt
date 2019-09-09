@@ -6,8 +6,11 @@ import io.ktor.http.HttpStatusCode
 import io.ktor.response.respond
 import io.ktor.routing.Routing
 import io.ktor.routing.get
+import org.koin.ktor.ext.inject
 
-fun Routing.sets(dataSource: DataSource) {
+fun Routing.sets() {
+
+    val dataSource by inject<DataSource>()
 
     get("/api/v1/sets") {
         call.respond(mapOf("sets" to dataSource.sets))
