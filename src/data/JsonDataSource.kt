@@ -11,7 +11,7 @@ class JsonDataSource(fileName: String) : DataSource {
 
     private val cardData: List<Card>
 
-    val expansion = Expansion(
+    private val expansion = Expansion(
         "sm12",
         "COE",
         "Cosmic Eclipse",
