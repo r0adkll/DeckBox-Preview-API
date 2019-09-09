@@ -1,4 +1,4 @@
-package com.deckboxtcg.endpoints
+package com.deckboxtcg.controllers.cards
 
 import com.deckboxtcg.controllers.cards.locations.CardById
 import com.deckboxtcg.controllers.cards.locations.Cards

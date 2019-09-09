@@ -2,32 +2,34 @@ package com.deckboxtcg.controllers.cards.locations
 
 import com.deckboxtcg.controllers.cards.locations.Cards.ModifierFilter.Modifier.*
 import data.model.Card
+import io.ktor.locations.KtorExperimentalLocationsAPI
 import io.ktor.locations.Location
 
+@KtorExperimentalLocationsAPI
 @Location("/cards")
 data class Cards(
-    val name: String?,
-    val id: String?,
-    val nationalPokedexNumber: Int?,
-    val types: String?,
-    val subtype: String?,
-    val supertype: String?,
-    val hp: String?,
-    val number: String?,
-    val series: String?,
-    val set: String?,
-    val setCode: String?,
-    val retreatCost: String?,
-    val convertedRetreatCost: String?,
-    val text: String?,
-    val attackDamage: String?,
-    val attackCost: String?,
-    val attackName: String?,
-    val attackText: String?,
-    val abilityName: String?,
-    val abilityText: String?,
-    val evolvesFrom: String?,
-    val contains: String?
+    val name: String? = null,
+    val id: String? = null,
+    val nationalPokedexNumber: Int? = null,
+    val types: String? = null,
+    val subtype: String? = null,
+    val supertype: String? = null,
+    val hp: String? = null,
+    val number: String? = null,
+    val series: String? = null,
+    val set: String? = null,
+    val setCode: String? = null,
+    val retreatCost: String? = null,
+    val convertedRetreatCost: String? = null,
+    val text: String? = null,
+    val attackDamage: String? = null,
+    val attackCost: String? = null,
+    val attackName: String? = null,
+    val attackText: String? = null,
+    val abilityName: String? = null,
+    val abilityText: String? = null,
+    val evolvesFrom: String? = null,
+    val contains: String? = null
 ) {
 
     val filter: (Card) -> Boolean

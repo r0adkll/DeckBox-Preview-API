@@ -25,10 +25,10 @@ class JsonDataSource(fileName: String) : DataSource {
     )
 
     init {
-        val json = JsonDataSource::class.java.getResourceAsStream(fileName)
-            .source()
-            .buffer()
-            .readString(Charsets.UTF_8)
+        val json = javaClass.classLoader.getResourceAsStream(fileName)
+            ?.source()
+            ?.buffer()
+            ?.readString(Charsets.UTF_8)
 
         val cardsType = object : TypeToken<List<Card>>() {}.type
         cardData = Gson().fromJson(json, cardsType)
