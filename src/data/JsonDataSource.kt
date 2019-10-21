@@ -13,11 +13,11 @@ class JsonDataSource(fileName: String) : DataSource {
 
     private val expansion = Expansion(
         "sm12",
-        "COE",
+        "CEC",
         "Cosmic Eclipse",
         "Sun & Moon",
-        208,
-        false,
+        210,
+        true,
         false,
         "November 1, 2019",
         "https://deckboxtcg.app/images/sm12/symbol.png",
